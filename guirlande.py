@@ -5,9 +5,9 @@ from nanpy import ArduinoApi
 connection = SerialManager(device='/dev/ttyACM0')
 a = ArduinoApi(connection=connection)
 
-RED=5
-GREEN=6
-BLUE=3
+RED=3
+GREEN=5
+BLUE=6
 
 def init():
     a.pinMode(RED, a.OUTPUT)
@@ -29,5 +29,5 @@ def blue():
     setColor(0, 0, 255)
 
 setColor(255, 0, 0)
-blue()
+red()
 
