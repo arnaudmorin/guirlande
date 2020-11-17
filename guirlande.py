@@ -4,9 +4,17 @@ from flask import Flask
 from flask import request
 from nanpy import SerialManager
 from nanpy import ArduinoApi
+import argparse
 import time
 
-connection = SerialManager(device='/dev/ttyACM0')
+
+parser = argparse.ArgumentParser(description='Guirlande')
+parser.add_argument('--tty', metavar='/dev/ttyXXX', default='/dev/ttyACM0',
+                    help='TTY to use')
+
+args = parser.parse_args()
+
+connection = SerialManager(device=args.tty)
 a = ArduinoApi(connection=connection)
 
 RED = 3
